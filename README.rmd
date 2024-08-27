@@ -9,6 +9,32 @@ output: md_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## background
+## Background
 
-This takes a data limited harvest control rule and applies it to snow crab from the Gulf of St. Lawrence. The rule was developed for Australian tanner crab by O'Neil and has a simple elegance. It was not tested here in simulation but it just shows what the TAC decision would have been given the crab abundance.
+This takes a data limited harvest control rule and applies it to snow crab from the Gulf of St. Lawrence. The rule was developed for Australian spanner crab by O'Neill and has a simple elegance. It was not tested here in simulation but it just shows what the TAC decision would have been given the crab abundance.
+
+## Running the HCR
+
+Step through the script "Crab HCR Oneill.r". It generates mock data and then makes plots like in the O'Neill paper. It worked in August 2024.
+
+## Comments on O'Neill approach (from 2010)
+
+### Comments on O’Neill and the Canadian PA policy
+O’Niell 2010 developed a harvest control rule for Australian spanner crabs and made a test of the rule with a simple operating model. Though the spanner crab does not necessarily experience the same dynamics as snow crabs, the precident is out there and we can use O’Neill’s framework roughly and modify it for the specifics of our situation and make it conform the to the Canadian PA framework.
+
+### Cx,target,l ~ BBAD (B bad)
+The lower limit of the target estimate which I call BBAD is roughly consistent with Blim. It should probably be lower though and the harvest rule more risk averse below that point to be consistent with an LRP.
+
+I would suggest that BBAD be set at something like the 10th percentile of all values for a stationary stock. For a stock displaying a long term production shift, e.g. Zone 13, we might set the value to something more recent and subsequently all the other things like quota would also need to be consistent with. The choice on whether to accept a productivity regime change can be profound and we need to consider the implications of this, e.g. does it mean that the stock will never be allowed to recover to previous levels if good conditions should return?
+
+### Cx,target,u ~ BEXE (B excellent)
+The upper limit of the target estimate, referred to as BEXE is not consistent with upper stock reference point (BUSR) -- the BUSR would be notably lower. BEXE would be consistent with the concept of increasing quotas beyond what has been previously allowed on an experimental basis to see if the stock can cope with that level of increased catch.
+
+### Cx,target ~ BCH (B cautious/healthy)
+This is called the target in O’Neill and its definition would be roughly consistent with upper stock reference point in the Canadian framework. There would appear to an inconsistency in calling the upper stock reference point a target; however, even in O’Neill the target is not generally something that the stock would tend to gravitate towards. In fact at this point as the indices approach the origin the quote from the HCR begins to decline thus it is more consistent with the BUSR than a target. There is a strange part of the HCR that produces increasing biomass when the survey biomass is below its BCH and the fishery biomass is near its BCH. This would be inconsistent with the PA.
+
+### Harvest control rule
+The harvest control rule in O’Neill is generally consistent with the PA. If points are to be interpreted as above, however, the HCR should be more risk averse below BBAD. The rule could be modified accordingly.
+
+## References
+O'Neill, M.F., Campbell, A.B., Brown, I.W. and Johnstone, R., 2010. Using catch rate data for simple cost-effective quota setting in the Australian spanner crab (*Ranina ranina*) fishery. ICES Journal of Marine Science, 67(8), pp.1538-1552.
